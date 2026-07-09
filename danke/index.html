@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You! Your Free Book is Coming | Chair Tai Chi Workout</title>
-  <meta name="description" content="Thank you for downloading Chair Tai Chi Workout! Check your email for your free copy and discover how to unlock your exclusive Chair Tai Chi Bonus Bundle.">
+  <title>Vielen Dank! Dein kostenloses Buch ist unterwegs | Vagusnerv — Die 3-Schritte-Rewire-Methode</title>
+  <meta name="description" content="Vielen Dank für den Download von „Vagusnerv: Die 3-Schritte-Rewire-Methode“ von Grace Alden! Sieh in deinem E-Mail-Postfach nach deinem kostenlosen Exemplar und sichere dir dein exklusives Vagusnerv Kartenset.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --forest:        #0B3F3B;
-      --forest-mid:    #145B54;
-      --teal:          #1A7A70;
-      --sage:          #3D8B5A;
-      --sage-soft:     #E8F3EC;
-      --terracotta:    #CF6B3A;
-      --gold:          #C9982E;
-      --gold-pale:     #F7EDD3;
-      --gold-bright:   #D4A843;
-      --cream:         #FDFAF4;
-      --cream-dark:    #F5EFE3;
-      --warm-white:    #FFFDF9;
-      --text:          #1E1E1E;
-      --text-secondary:#5A5A5A;
-      --text-muted:    #8A8A8A;
+      /* Palette drawn from the book cover */
+      --navy:          #16265C;   /* title navy */
+      --navy-deep:     #0E1A44;   /* hero background */
+      --navy-mid:      #1F3372;
+      --steel:         #6E93B8;   /* "3-STEP" badge blue */
+      --steel-soft:    #E3EDF6;
+      --teal:          #2F8B87;   /* bottom badges teal */
+      --teal-deep:     #23706D;
+      --teal-soft:     #E4F2F1;
+      --gold:          #E4AF52;   /* nerve glow */
+      --gold-bright:   #F0C165;
+      --gold-soft:     #FBF3E1;
+      --ice:           #F5F9FC;   /* page background */
+      --ice-dark:      #E9F1F8;
       --white:         #FFFFFF;
-      --shadow-sm:     0 2px 8px rgba(11,63,59,0.06);
-      --shadow-md:     0 8px 30px rgba(11,63,59,0.10);
-      --shadow-lg:     0 20px 50px rgba(11,63,59,0.14);
-      --shadow-book:   0 25px 60px rgba(0,0,0,0.30), 0 6px 16px rgba(0,0,0,0.15);
+      --text:          #1C2333;
+      --text-secondary:#54607A;
+      --text-muted:    #8B95A9;
+      --shadow-sm:     0 2px 8px rgba(22,38,92,0.06);
+      --shadow-md:     0 8px 30px rgba(22,38,92,0.10);
+      --shadow-lg:     0 20px 50px rgba(22,38,92,0.14);
+      --shadow-book:   0 25px 60px rgba(4,10,35,0.45), 0 6px 16px rgba(4,10,35,0.25);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--cream);
+      background: var(--ice);
       color: var(--text);
-      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -47,7 +49,7 @@
 
     /* ======================== HERO ======================== */
     .hero {
-      background: var(--forest);
+      background: radial-gradient(120% 140% at 85% 0%, var(--navy-mid) 0%, var(--navy-deep) 55%);
       position: relative;
       overflow: hidden;
     }
@@ -57,16 +59,7 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--terracotta), var(--gold), var(--sage));
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: -40%; right: -15%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(26,122,112,0.3) 0%, transparent 70%);
-      pointer-events: none;
+      background: linear-gradient(90deg, var(--steel), var(--gold), var(--teal));
     }
 
     .hero-inner {
@@ -82,7 +75,24 @@
 
     .hero-book {
       flex-shrink: 0;
-      width: 195px;
+      width: 200px;
+      position: relative;
+    }
+
+    /* Signature element: a golden "breathing" glow behind the cover,
+       echoing the illuminated vagus nerve — slow 7s rhythm, like a calm breath */
+    .hero-book::before {
+      content: "";
+      position: absolute;
+      inset: -30% -35%;
+      background: radial-gradient(circle, rgba(228,175,82,0.38) 0%, rgba(228,175,82,0.12) 45%, transparent 70%);
+      animation: breathe 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(0.92); opacity: 0.7; }
+      50%      { transform: scale(1.06); opacity: 1; }
     }
 
     .book-wrap { position: relative; }
@@ -104,9 +114,10 @@
       position: absolute;
       left: -3px; top: 2%;
       width: 6px; height: 96%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(0,0,0,0.15));
+      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(0,0,0,0.20));
       border-radius: 2px 0 0 2px;
       transform: perspective(900px) rotateY(-5deg);
+      z-index: 1;
     }
 
     .hero-text {
@@ -114,16 +125,27 @@
       color: var(--white);
     }
 
+    .science-eyebrow {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.02rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel);
+      margin-bottom: 0.9rem;
+    }
+
     .confirmed-tag {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       color: var(--gold-bright);
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
 
     .confirmed-tag svg {
@@ -134,20 +156,22 @@
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      line-height: 1.18;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
+      font-family: 'Archivo', system-ui, sans-serif;
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.14;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.015em;
     }
 
     .hero-desc {
       font-size: 1.05rem;
       line-height: 1.6;
-      color: rgba(255,255,255,0.78);
-      max-width: 400px;
+      color: rgba(255,255,255,0.75);
+      max-width: 420px;
     }
+
+    .hero-desc strong { color: var(--gold-bright); font-weight: 600; }
 
     /* ======================== MAIN CONTENT ======================== */
     .main-content {
@@ -162,11 +186,12 @@
     }
 
     .email-heading h2 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 1.65rem;
+      font-family: 'Archivo', system-ui, sans-serif;
+      font-size: 1.6rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--navy);
       margin-bottom: 0.4rem;
+      letter-spacing: -0.01em;
     }
 
     .email-heading p {
@@ -190,8 +215,8 @@
       top: 28px;
       bottom: 28px;
       width: 2px;
-      background: linear-gradient(180deg, var(--teal), var(--sage));
-      opacity: 0.25;
+      background: linear-gradient(180deg, var(--steel), var(--teal));
+      opacity: 0.3;
     }
 
     .step {
@@ -204,7 +229,7 @@
     .step-dot {
       width: 40px; height: 40px;
       flex-shrink: 0;
-      background: var(--forest);
+      background: var(--navy);
       color: var(--white);
       border-radius: 50%;
       display: flex;
@@ -214,7 +239,7 @@
       font-weight: 700;
       position: relative;
       z-index: 1;
-      box-shadow: 0 0 0 4px var(--cream);
+      box-shadow: 0 0 0 4px var(--ice);
     }
 
     .step p {
@@ -223,23 +248,24 @@
     }
 
     .step strong {
-      color: var(--forest);
+      color: var(--navy);
       font-weight: 600;
     }
 
     .divider {
       width: 60px;
       height: 2px;
-      background: linear-gradient(90deg, var(--terracotta), var(--gold));
+      background: linear-gradient(90deg, var(--teal), var(--gold));
       margin: 0 auto 2.5rem;
       border-radius: 2px;
     }
 
     /* Tips */
     .tips {
-      background: var(--warm-white);
+      background: var(--white);
       padding: 1.5rem 1.6rem;
       border-radius: 0.75rem;
+      border: 1px solid var(--ice-dark);
       box-shadow: var(--shadow-sm);
       margin-bottom: 2.5rem;
     }
@@ -247,7 +273,7 @@
     .tips-title {
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--navy);
       margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
@@ -256,7 +282,7 @@
 
     .tips-title svg {
       width: 16px; height: 16px;
-      stroke: var(--terracotta);
+      stroke: var(--teal);
       fill: none;
       stroke-width: 2;
     }
@@ -279,7 +305,7 @@
       position: absolute;
       left: 0; top: 0.55rem;
       width: 6px; height: 6px;
-      background: var(--sage);
+      background: var(--teal);
       border-radius: 50%;
     }
 
@@ -287,7 +313,7 @@
 
     /* ======================== TRUST BAR ======================== */
     .trust {
-      background: var(--forest);
+      background: var(--navy-deep);
       padding: 1.6rem 1.5rem;
       overflow: hidden;
       position: relative;
@@ -304,12 +330,12 @@
 
     .trust::before {
       left: 0;
-      background: linear-gradient(90deg, var(--forest), transparent);
+      background: linear-gradient(90deg, var(--navy-deep), transparent);
     }
 
     .trust::after {
       right: 0;
-      background: linear-gradient(-90deg, var(--forest), transparent);
+      background: linear-gradient(-90deg, var(--navy-deep), transparent);
     }
 
     .trust-inner {
@@ -334,7 +360,7 @@
     .trust-icon {
       width: 32px; height: 32px;
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -343,13 +369,13 @@
     }
 
     .trust-item strong {
-      color: var(--white);
+      color: var(--gold-bright);
       font-weight: 700;
     }
 
     /* ======================== BONUS ======================== */
     .bonus {
-      background: linear-gradient(175deg, var(--cream-dark) 0%, var(--cream) 100%);
+      background: linear-gradient(175deg, var(--ice-dark) 0%, var(--ice) 100%);
       padding: 3.5rem 1.5rem 3rem;
     }
 
@@ -368,17 +394,18 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--terracotta);
+      color: var(--teal);
       margin-bottom: 0.5rem;
     }
 
     .bonus h2 {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Archivo', system-ui, sans-serif;
       font-size: 1.75rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--navy);
       margin-bottom: 0.5rem;
       line-height: 1.2;
+      letter-spacing: -0.01em;
     }
 
     .bonus-sub {
@@ -399,18 +426,18 @@
       grid-template-columns: 360px 1fr;
     }
 
-   .bonus-visual {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-}
+    .bonus-visual {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
 
-.bonus-visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .bonus-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .bonus-content {
       padding: 1.75rem 2rem;
@@ -420,10 +447,10 @@
     }
 
     .bonus-content h3 {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Archivo', system-ui, sans-serif;
       font-size: 1.3rem;
       font-weight: 700;
-      color: var(--forest);
+      color: var(--navy);
       margin-bottom: 0.6rem;
       line-height: 1.25;
     }
@@ -450,14 +477,14 @@
     .included-icon {
       width: 36px; height: 36px;
       flex-shrink: 0;
-      background: var(--sage-soft);
+      background: var(--teal-soft);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.95rem;
       font-weight: 700;
-      color: var(--sage);
+      color: var(--teal-deep);
     }
 
     .included-text {
@@ -472,15 +499,15 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      background: var(--forest);
+      background: var(--navy);
       color: var(--white);
-      font-family: 'DM Sans', system-ui, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
       padding: 0.9rem 1.6rem;
       border-radius: 0.6rem;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(11,63,59,0.25);
+      box-shadow: 0 4px 14px rgba(22,38,92,0.28);
       letter-spacing: 0.01em;
     }
 
@@ -497,7 +524,7 @@
 
     /* ======================== FOOTER ======================== */
     footer {
-      background: var(--forest);
+      background: var(--navy-deep);
       color: rgba(255,255,255,0.55);
       text-align: center;
       padding: 1.4rem 1.5rem;
@@ -542,9 +569,9 @@
         gap: 1.5rem;
       }
 
-      .hero-book { width: 150px; }
+      .hero-book { width: 155px; }
       .book-cover, .book-wrap::before { transform: none; }
-      .hero h1 { font-size: 1.6rem; }
+      .hero h1 { font-size: 1.55rem; }
 
       .hero-desc {
         margin: 0 auto;
@@ -555,7 +582,7 @@
         padding: 2.5rem 1.25rem 1.5rem;
       }
 
-      .email-heading h2 { font-size: 1.4rem; }
+      .email-heading h2 { font-size: 1.35rem; }
 
       .trust-inner {
         flex-direction: column;
@@ -583,9 +610,9 @@
 
     @media (min-width: 900px) {
       .hero-inner { padding: 4rem 2rem 3.5rem; }
-      .hero-book  { width: 220px; }
-      .hero h1    { font-size: 2.6rem; }
-      .email-heading h2 { font-size: 1.85rem; }
+      .hero-book  { width: 225px; }
+      .hero h1    { font-size: 2.5rem; }
+      .email-heading h2 { font-size: 1.8rem; }
       .bonus h2   { font-size: 2rem; }
       .bonus-card { grid-template-columns: 360px 1fr; }
     }
@@ -598,16 +625,17 @@
     <div class="hero-inner">
       <div class="hero-book">
         <div class="book-wrap">
-          <img src="Cover_TAI_CHI_CHAIR.png" alt="Chair Tai Chi Workout – Book Cover" class="book-cover" />
+          <img src="cover.vagusnerve.jpg" alt="Vagusnerv: Die 3-Schritte-Rewire-Methode – Buchcover" class="book-cover" />
         </div>
       </div>
       <div class="hero-text">
+        <p class="science-eyebrow">Wissenschaftlich fundiert &nbsp;·&nbsp; Grace Alden</p>
         <div class="confirmed-tag">
           <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          Confirmed — You're all set
+          Bestätigt — Alles bereit für dich
         </div>
-        <h1>Your Free Chair Tai Chi Guide Is on Its Way</h1>
-        <p class="hero-desc">Great choice. We've sent your personal copy straight to your inbox, it should arrive within the next few minutes.</p>
+        <h1>Dein Vagusnerv-Ratgeber ist unterwegs</h1>
+        <p class="hero-desc">Gute Wahl. Wir haben dein persönliches Exemplar direkt an dein Postfach geschickt — es sollte in den nächsten Minuten bei dir ankommen.</p>
       </div>
     </div>
   </section>
@@ -615,22 +643,22 @@
   <!-- ============== MAIN CONTENT ============== -->
   <div class="main-content">
     <div class="email-heading">
-      <h2>Grab Your Copy in 3 Simple Steps</h2>
-      <p>Your download link is waiting in your inbox right now.</p>
+      <h2>In 3 einfachen Schritten zu deinem Exemplar</h2>
+      <p>Dein Download-Link wartet schon jetzt in deinem Postfach.</p>
     </div>
 
     <div class="steps">
       <div class="step">
         <div class="step-dot">1</div>
-        <p>Open your <strong>email app</strong> (Gmail, Yahoo, Outlook…)</p>
+        <p>Öffne deine <strong>E-Mail-App</strong> (Gmail, Yahoo, Outlook, GMX, web.de…)</p>
       </div>
       <div class="step">
         <div class="step-dot">2</div>
-        <p>Look for the message from <strong>Morgan Fujita</strong></p>
+        <p>Suche nach der Nachricht von <strong>Grace Alden</strong></p>
       </div>
       <div class="step">
         <div class="step-dot">3</div>
-        <p>Tap the <strong>download link</strong> inside — and enjoy!</p>
+        <p>Tippe auf den <strong>Download-Link</strong> darin — und finde ab heute mehr Ruhe</p>
       </div>
     </div>
 
@@ -639,13 +667,13 @@
     <div class="tips">
       <div class="tips-title">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        Don't see it? Here's where to look
+        Nicht gefunden? Hier lohnt sich ein Blick
       </div>
       <ul>
-        <li>Check your <strong>Spam</strong> or <strong>Promotions</strong> folder</li>
-        <li>Search for "<strong>Morgan Fujita</strong>" in your inbox</li>
-        <li>Take a look in <strong>Junk Mail</strong></li>
-        <li>Add our address to your contacts for future messages</li>
+        <li>Prüfe deinen Ordner <strong>Spam</strong> oder <strong>Werbung</strong></li>
+        <li>Suche in deinem Postfach nach „<strong>Grace Alden</strong>“</li>
+        <li>Wirf einen Blick in den <strong>Junk-Ordner</strong></li>
+        <li>Füge unsere Adresse zu deinen Kontakten hinzu, damit künftige Nachrichten sicher ankommen</li>
       </ul>
     </div>
   </div>
@@ -655,15 +683,15 @@
     <div class="trust-inner">
       <div class="trust-item">
         <span class="trust-icon">📖</span>
-        <span>Downloaded by <strong>5,000+</strong> readers</span>
+        <span>Von <strong>5.000+</strong> Leser:innen heruntergeladen</span>
       </div>
       <div class="trust-item">
         <span class="trust-icon">⭐</span>
-        <span>Rated <strong>4.8 / 5</strong> on Amazon</span>
+        <span>Mit <strong>4,8 / 5</strong> auf Amazon bewertet</span>
       </div>
       <div class="trust-item">
-        <span class="trust-icon">🪑</span>
-        <span><strong>100%</strong> seated exercises</span>
+        <span class="trust-icon">🧠</span>
+        <span><strong>Wissenschaftlich fundierte</strong> 3-Schritte-Methode</span>
       </div>
     </div>
   </section>
@@ -672,27 +700,27 @@
   <section class="bonus">
     <div class="bonus-inner">
       <div class="bonus-header">
-        <p class="bonus-label">🎁 Exclusive Bonus</p>
-        <h2>There's More Waiting for You</h2>
-        <p class="bonus-sub">An exclusive toolkit to bring Tai Chi's benefits into your daily routine, one gentle step at a time.</p>
+        <p class="bonus-label">🎁 Exklusiver Bonus</p>
+        <h2>Auf dich wartet noch mehr</h2>
+        <p class="bonus-sub">Ein praktisches Kartenset, um dein Nervensystem jederzeit und überall zu beruhigen — Schritt für Schritt, mit einer Übung nach der anderen.</p>
       </div>
 
       <div class="bonus-card">
         <div class="bonus-visual">
-          <img src="bonus.taichichair.png" alt="Chair Tai Chi Bonus Bundle" />
+          <img src="bonus.vagusnerve.png" alt="Vagusnerv Kartenset – 60 Karten" />
         </div>
         <div class="bonus-content">
-          <h3>Your Chair Tai Chi Bonus Bundle</h3>
-          <p>Everything you need to complement your guide and build a gentle, consistent practice from your chair.</p>
+          <h3>Dein Vagusnerv Kartenset</h3>
+          <p>60 praktische Übungen, um zur Ruhe zu kommen, dich zu regulieren und dich in Körper und Geist sicher zu fühlen — die perfekte Ergänzung zu deinem 21-Tage-Reset.</p>
 
           <div class="included">
             <div class="included-item">
               <div class="included-icon">✓</div>
-              <div class="included-text">Tai Chi Video Playlist</div>
+              <div class="included-text">60 Karten zum Ausdrucken</div>
             </div>
             <div class="included-item">
               <div class="included-icon">✓</div>
-              <div class="included-text">Chair Rx Toolkit</div>
+              <div class="included-text">Übungen von 2–5 Minuten</div>
             </div>
           </div>
 
@@ -700,7 +728,7 @@
             <span class="cta-icon">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
             </span>
-            Check Your Email for Details
+            Details in deiner E-Mail
             <span class="cta-arrow">→</span>
           </div>
         </div>
@@ -711,11 +739,11 @@
   <!-- ============== FOOTER ============== -->
   <footer>
     <p class="footer-contact">
-      <strong>Questions?</strong> Simply reply to any of our emails — we're happy to help.
+      <strong>Fragen?</strong> Antworte einfach auf eine unserer E-Mails — wir helfen dir gern weiter.
     </p>
     <p>
-      © 2026 Morgan Fujita · All rights reserved ·
-      <a href="https://s3.privyr.com/privacy/privacy-policy.html?d=eyJlbWFpbCI6Im1vcmdhbi5mdWppdGFAdGxiLXB1Ymxpc2hpbmcuY29tIiwiY29tcGFueSI6IlRMQiBCb29rIFB1Ymxpc2hpbmciLCJnZW5fYXQiOiIyMDI1LTEwLTIzVDE2OjMxOjUyLjk0MFoifQ==" target="_blank" rel="noopener">Privacy Policy</a>
+      © 2026 Grace Alden · Alle Rechte vorbehalten ·
+      <a href="https://s3.privyr.com/privacy/privacy-policy.html?d=eyJlbWFpbCI6ImdyYWNlLmFsZGVuQGJ0aC1wdWJsaXNoaW5nLmNvbSIsImNvbXBhbnkiOiJCVEggQm9vayBQdWJsaXNoaW5nIiwiZ2VuX2F0IjoiMjAyNi0wNy0wOVQxMDoxODoxOC4wMjRaIn0=" target="_blank" rel="noopener">Datenschutzerklärung</a>
     </p>
   </footer>
 
