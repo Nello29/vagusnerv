@@ -75,7 +75,7 @@
 
     .hero-book {
       flex-shrink: 0;
-      width: 200px;
+      width: 270px;
       position: relative;
     }
 
@@ -416,13 +416,16 @@
       grid-template-columns: 360px 1fr;
     }
 
+    /* Il visual si estende su tutta l'altezza della card (niente striscia bianca) */
     .bonus-visual {
       position: relative;
-      aspect-ratio: 1 / 1;
       overflow: hidden;
+      min-height: 100%;
     }
 
     .bonus-visual img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -559,7 +562,7 @@
         gap: 1.5rem;
       }
 
-      .hero-book { width: 155px; }
+      .hero-book { width: 200px; }
       .book-cover { transform: none; }
       .hero h1 { font-size: 1.55rem; }
 
@@ -587,6 +590,9 @@
         grid-template-columns: 1fr;
       }
 
+      /* In colonna singola il visual non ha altezza propria: gliela diamo */
+      .bonus-visual { aspect-ratio: 1 / 1; min-height: 0; }
+
       .bonus-content {
         padding: 1.5rem 1.25rem;
       }
@@ -600,7 +606,7 @@
 
     @media (min-width: 900px) {
       .hero-inner { padding: 4rem 2rem 3.5rem; }
-      .hero-book  { width: 225px; }
+      .hero-book  { width: 310px; }
       .hero h1    { font-size: 2.5rem; }
       .email-heading h2 { font-size: 1.8rem; }
       .bonus h2   { font-size: 2rem; }
