@@ -97,27 +97,17 @@
 
     .book-wrap { position: relative; }
 
+    /* Mockup 3D con sfondo trasparente:
+       niente box-shadow / border-radius / rotateY (creavano il riquadro).
+       drop-shadow segue la sagoma reale del PNG. */
     .book-cover {
       width: 100%;
-      border-radius: 4px;
-      box-shadow: var(--shadow-book);
-      transform: perspective(900px) rotateY(-5deg);
+      filter: drop-shadow(0 22px 34px rgba(4,10,35,0.55));
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .book-cover:hover {
-      transform: perspective(900px) rotateY(0deg) scale(1.03);
-    }
-
-    .book-wrap::before {
-      content: "";
-      position: absolute;
-      left: -3px; top: 2%;
-      width: 6px; height: 96%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(0,0,0,0.20));
-      border-radius: 2px 0 0 2px;
-      transform: perspective(900px) rotateY(-5deg);
-      z-index: 1;
+      transform: translateY(-6px) scale(1.03);
     }
 
     .hero-text {
@@ -570,7 +560,7 @@
       }
 
       .hero-book { width: 155px; }
-      .book-cover, .book-wrap::before { transform: none; }
+      .book-cover { transform: none; }
       .hero h1 { font-size: 1.55rem; }
 
       .hero-desc {
@@ -625,7 +615,7 @@
     <div class="hero-inner">
       <div class="hero-book">
         <div class="book-wrap">
-          <img src="cover.vagusnerv.png" alt="Vagusnerv: Die 3-Schritte-Rewire-Methode – Buchcover" class="book-cover" />
+          <img src="cover.vagusnerv.jpg" alt="Vagusnerv: Die 3-Schritte-Rewire-Methode – Buchcover" class="book-cover" />
         </div>
       </div>
       <div class="hero-text">
@@ -707,7 +697,7 @@
 
       <div class="bonus-card">
         <div class="bonus-visual">
-          <img src="bonus.vagusnerv.jpg" alt="Vagusnerv Kartenset – 60+ Karten" />
+          <img src="bonus.vagusnerv.png" alt="Vagusnerv Kartenset – 60+ Karten" />
         </div>
         <div class="bonus-content">
           <h3>Dein Vagusnerv Kartenset</h3>
